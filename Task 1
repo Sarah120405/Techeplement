@@ -1,1 +1,44 @@
+print ("\n\nContact Management System\n")
+contact_store = {"Name ":"Contact"}
+name = ""
+chance = "yes"
+def addContact():
+    name = input("Enter name: ")
+    n = input("Enter number: ")
+    contact_store[name] = n
+    contactList()
 
+def contactList():
+    keys = list(contact_store.keys())
+    values = list(contact_store.values())
+    print("\nContact List: ")
+    for i in range(0,len(contact_store)):
+        print(keys[i]," | ", values[i])
+
+def deleteContact(): 
+    del(contact_store[input("Name you want to delete: ")])
+    contactList()
+
+def editContact():
+    name = input("Enter name: ")
+    Newnum = input("Enter New number: ")
+    contact_store[name] = Newnum
+    print("Saved\n")
+    contactList()
+contactList()
+while chance == "yes":
+
+    print ("\nMenu\n1. Add Contact\n2. View Contacts\n3. Remove Contact\n4. Edit Contact")
+
+    c = int(input("\nSelect: "))
+    if c == 1:
+        addContact()
+    elif c == 2:
+        contactList()
+    elif c == 3:
+        deleteContact()
+    elif c == 4:
+        editContact()
+    else:
+        print("Select correct option")
+    chance = input("\nAgain(yes or no): ")
